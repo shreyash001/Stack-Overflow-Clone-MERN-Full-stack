@@ -14,12 +14,14 @@
     padding: 20px 0px;
 }
 
-.side-nav-div div{
-    padding-left: 10px;
+.side-nav-div p{
+    padding-right: 40px;
 } 
 
 .side-nav-div{
     padding: 10px 20px;
+    padding-right: 0px;
+    /* margin-right: 5px; */
 }
 
 .side-nav-link{

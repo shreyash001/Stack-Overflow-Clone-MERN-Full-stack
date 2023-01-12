@@ -32,7 +32,9 @@ const Auth = () => {
           </label>
           <label htmlFor="password">
             <div style={{display:'flex', justifyContent:'space-between'}}>
-              <h4>Password</h4>
+              {/* Using password in braces because of css with respect to the login and signup page */}
+              {!isSignup && <h4 style={{marginTop:'21px'}}>Password</h4>}
+              {isSignup && <h4>Password</h4>}
               {!isSignup && <p style={{fontSize:'13px', color:'#007ac6', margin:'24px 5px'}}>forgot password?</p>}
             </div>
             <input type="password" name='password' id='password' />
