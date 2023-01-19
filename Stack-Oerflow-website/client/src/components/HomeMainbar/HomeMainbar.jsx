@@ -7,7 +7,6 @@ import QuestionsList from './QuestionsList'
 
 
 const HomeMainbar = () => {
-
   const user = 1;
   const location = useLocation();
   const navigate = useNavigate();
