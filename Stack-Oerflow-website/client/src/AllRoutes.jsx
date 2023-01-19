@@ -15,7 +15,7 @@ const AllRoutes = () => {
         <Route path= "/Auth" element= {<Auth/>} />
         <Route path= "/Questions" element={<Questions/>} />
         <Route path= "/AskQuestion" element={<AskQuestion/>} />
-        <Route path= '/Questions/:id' element={<DisplayQuestion/>} />
+        <Route path= "/Questions/:id" element={<DisplayQuestion/>} />
       </Routes>
     </div>
   )
