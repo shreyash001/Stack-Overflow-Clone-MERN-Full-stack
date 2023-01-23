@@ -1,10 +1,7 @@
-import React from 'react'
-
-import './HomeMainbar.css'
-import { useNavigate, useLocation } from 'react-router-dom'
-import QuestionsList from './QuestionsList'
-
-
+import React from "react";
+import "./HomeMainbar.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import QuestionsList from "./QuestionsList";
 
 const HomeMainbar = () => {
   const user = 1;
@@ -14,68 +11,74 @@ const HomeMainbar = () => {
   const questionsList = [
     {
       _id: 1,
-      upVotes:3,
-      downVotes:2,
-      noOfAnswers:2,
+      upVotes: 3,
+      downVotes: 2,
+      noOfAnswers: 2,
       questionTitle: "What is javascript",
       questionBody: "It is meant to be",
       questionTags: ["javascript", "java", "css"],
       userPosted: "mona",
-      userId:1,
+      userId: 1,
       askedOn: "jan 01",
-      answers: [{
-        answers: "Answer",
-        userAnswered:'Kumar',
-        answeredOn: "jan 02",
-        userId:2,
-      }]
+      answers: [
+        {
+          answers: "Answer",
+          userAnswered: "Kumar",
+          answeredOn: "jan 02",
+          userId: 2,
+        },
+      ],
     },
     {
       _id: 2,
       questionTags: ["html", "java", "css"],
       userPosted: "Rahul",
 
-      upVotes:3,
-      downVotes:2,
-      noOfAnswers:2,
+      upVotes: 3,
+      downVotes: 2,
+      noOfAnswers: 2,
       questionTitle: "What is java",
       questionBody: "It is meant to be",
-      userId:2,
+      userId: 2,
       askedOn: "jan 01",
-      answers: [{
-        answers: "Answer",
-        userAnswered:'Kumar',
-        answeredOn: "jan 02",
-        userId:5,
-      }]
+      answers: [
+        {
+          answers: "Answer",
+          userAnswered: "Kumar",
+          answeredOn: "jan 02",
+          userId: 5,
+        },
+      ],
     },
     {
       _id: 3,
       questionTags: ["DevOps", "html", "css"],
       userPosted: "Ajay",
 
-      upVotes:3,
-      downVotes:2,
-      noOfAnswers:2,
+      upVotes: 3,
+      downVotes: 2,
+      noOfAnswers: 2,
       questionTitle: "What is DevOps",
       questionBody: "It is meant to be",
-      userId:3,
+      userId: 3,
       askedOn: "jan 01",
-      answers: [{
-        answers: "Answer",
-        userAnswered:'Kumar',
-        answeredOn: "jan 02",
-        userId:4,
-      }]
+      answers: [
+        {
+          answers: "Answer",
+          userAnswered: "Kumar",
+          answeredOn: "jan 02",
+          userId: 4,
+        },
+      ],
     },
   ];
 
   const askButtonRedirect = () => {
     if (user === null) {
       alert("Login to Ask Question");
-      navigate('/Auth');
+      navigate("/Auth");
     } else {
-      navigate('/AskQuestion');
+      navigate("/AskQuestion");
     }
   };
 
@@ -105,4 +108,4 @@ const HomeMainbar = () => {
   );
 };
 
-export default HomeMainbar
+export default HomeMainbar;
