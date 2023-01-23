@@ -1,6 +1,7 @@
 .auth-section{
     min-height: 100vh;
     margin: 0%  auto;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
