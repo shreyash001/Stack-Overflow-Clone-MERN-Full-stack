@@ -10,7 +10,7 @@ import downVote from '../../assets/downVote.png'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswer from './DisplayAnswer';
 import './Question.css'
-import { postAnswer, deleteQuestions } from "../../actions/question.js";
+import { postAnswer, deleteQuestions, voteQuestion } from "../../actions/question.js";
 
 
 const QuestionDetails = () => {
@@ -118,6 +118,14 @@ const QuestionDetails = () => {
     alert("Question Deleted")
   }
 
+  const handleUpVote = () => {
+    dispatch(voteQuestion(id,'upVote',User.result._id))
+  }
+
+  const handleDownVote = () => {
+    dispatch(voteQuestion(id,'downVote',User.result._id))
+  }
+
   return (
     <div className='question-details-page'>
       {
@@ -132,9 +140,9 @@ const QuestionDetails = () => {
                       <h1>{question.questionTitle}</h1>
                       <div className='question-details-container-2'>
                         <div className='question-votes'>
-                          <img src={upVote} alt="" className='votes-icon'/>
-                          <p>{question.upVotes - question.downVotes}</p>
-                          <img src={downVote} alt=""  className='votes-icon'/>
+                          <img src={upVote} alt="" className='votes-icon' onClick={handleUpVote}/>
+                          <p>{question.upVote.length - question.downVote.length}</p>
+                          <img src={downVote} alt=""  className='votes-icon' onClick={handleDownVote}/>
                         </div>
                         <div style={{width:'100%'}} className='question-body-1'>
                           <p className='question-body-2'>{question.questionBody}</p>
