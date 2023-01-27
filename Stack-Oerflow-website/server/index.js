@@ -4,6 +4,7 @@ import cors from "cors";
 
 import userRoutes from "./routes/users.js";
 import questionRoutes from "./routes/Questions.js";
+import answerRoutes from "./routes/Answer.js"
 
 const app = express();
 app.use(express.json({ limt: "30mb", extended: true }));
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
+app.use("/answer", answerRoutes);
 
 const PORT = process.env.PORT || 5000;
 

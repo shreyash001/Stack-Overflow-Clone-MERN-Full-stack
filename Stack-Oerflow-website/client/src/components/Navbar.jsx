@@ -7,7 +7,7 @@ import { useSelector, useDispatch }  from 'react-redux'
 import logo from '../assets/logo.png'
 import search from '../assets/search.png'
 import Avatar from './Avatar/Avatar' 
-import { setCurrentUser } from '../actions/currentUser'
+import { setCurrentUser } from '../actions/currentUser.js'
 
 const Navbar = () => {
 
@@ -41,7 +41,7 @@ const Navbar = () => {
                   px='10px' py='15px'
                   textAlign='center' 
                   cursor='pointer' 
-                  ><Link to='/' style={{color:'white' ,textDecoration:'none'}}>M</Link>
+                  ><Link to='/' style={{color:'white' ,textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link>
               </Avatar>
                 <button className='nav-item nav-links'>Logout</button>
               </>
