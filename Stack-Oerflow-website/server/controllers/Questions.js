@@ -50,8 +50,8 @@ export const voteQuestion = async(req,res)  => {
   }
   try {
     const question = await Questions.findById(_id)
-    const upIndex = question.upVote.findByIndex( (id) => id === String(userId))
-    const downIndex = question.downVote.findByIndex( (id) => id === String(userId))
+    const upIndex = question.upVote.findIndex( (id) => id === String(userId))
+    const downIndex = question.downVote.findIndex( (id) => id === String(userId))
 
     if(value === 'upVote'){
       if(downIndex !== -1){
