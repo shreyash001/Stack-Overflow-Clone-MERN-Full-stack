@@ -20,12 +20,12 @@ const Navbar = () => {
     const token = User?.token
     if(token){
       const decodedToken = decode(token)
-      if(decodedToken.exp *1000 < new Date().getTime()){
+      if(decodedToken.exp * 1000 < new Date().getTime()){
         handleLogout();
       }
     }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile')) ))
-  }, [dispatch])
+  }, [User?.token, dispatch])
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT"});
