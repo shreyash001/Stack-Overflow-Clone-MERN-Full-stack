@@ -12,12 +12,9 @@ const Users = () => {
   return (
     <div className='home-container-1'>
       <LeftSideBar></LeftSideBar>
-      <div className='home-container-3'>
-        {
-          location.pathname === '/Users'?
-          <UsersList></UsersList>:
-          <></>
-        }
+      <div className='home-container-3' style={{marginTop: '50px'}}>
+        <h1 style={{fontWeight: '400'}}>Users</h1>
+        <UsersList/>
       </div>
     </div>
   )

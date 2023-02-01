@@ -56,7 +56,7 @@ const Navbar = () => {
                   px='10px' py='15px'
                   textAlign='center' 
                   cursor='pointer' 
-                  ><Link to='/' style={{color:'white' ,textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link>
+                  ><Link to={`/Users/${User?.result._id}`} style={{color:'white' ,textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link>
                 </Avatar>
                 <button className='nav-item nav-links' onClick={handleLogout}>Logout</button>
               </>
