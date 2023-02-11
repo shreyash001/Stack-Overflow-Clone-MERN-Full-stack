@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 
 
 import LeftSideBar from '../../components/LeftSidebar/LeftSidebar'
@@ -7,7 +7,7 @@ import UsersList from './UsersList'
 import '../../App.css'
 
 const Users = () => {
-  const location = useLocation()
+  // const location = useLocation()
 
   return (
     <div className='home-container-1'>

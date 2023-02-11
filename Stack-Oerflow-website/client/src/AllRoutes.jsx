@@ -24,6 +24,7 @@ const AllRoutes = () => {
           element={<Users/>}/>
         <Route path="/AskQuestion" element={<AskQuestion />} />
         <Route path="/Questions/:id" element={<DisplayQuestion />} />
+        <Route path="/Users" element={<Users/>} />
         <Route path="/Users/:id" element={<UserProfile/>} />
       </Routes>
     </div>
