@@ -29,7 +29,7 @@ export const updateProfile = async(req,res) => {
     }
     
     try {
-        const updatedProfile = await users.findByIdAndUpdate( _id, {$set : {'name':name, 'about':about, 'tags': tags}},{new:true})
+        const updatedProfile = await User.findByIdAndUpdate( _id, {$set : {'name':name, 'about':about, 'tags': tags}},{new:true})
         res.status(200).json(updatedProfile)
     } catch (error) {
         console.log(error);
