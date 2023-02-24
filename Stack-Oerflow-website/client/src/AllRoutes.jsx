@@ -8,6 +8,7 @@ import DisplayQuestion from "./pages/Questions/DisplayQuestion";
 import Tags from "./pages/Tags/Tags";
 import Users from "./pages/Users/Users";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import Chatbot from "./pages/Chatbot/Chatbot";
 
 const AllRoutes = () => {
   return (
@@ -26,6 +27,8 @@ const AllRoutes = () => {
         <Route path="/Questions/:id" element={<DisplayQuestion />} />
         <Route path="/Users" element={<Users/>} />
         <Route path="/Users/:id" element={<UserProfile/>} />
+
+        <Route path="/Chatbot" element={<Chatbot/>}/>
       </Routes>
     </div>
   );

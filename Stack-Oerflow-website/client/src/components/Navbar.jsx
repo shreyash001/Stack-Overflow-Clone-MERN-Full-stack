@@ -41,7 +41,7 @@ const Navbar = () => {
             </Link>
             <Link to='/' className='nav-item nav-btn'>About</Link>
             <Link to='/' className='nav-item nav-btn'>Product</Link>
-            <Link to='/' className='nav-item nav-btn '>For Teams</Link>
+            <Link to='/ChatBot' className='nav-item nav-btn '>AI Solution</Link>
             <form>
                 <input type="text" placeholder='Search...' />
                 <img src={search} alt="search-icon" className='search-icon' width='15px'/>
