@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv"
+import { Configuration, OpenAIApi } from "openai";
 
 import userRoutes from "./routes/users.js";
 import questionRoutes from "./routes/Questions.js";
@@ -34,3 +35,32 @@ mongoose
     })
   )
   .catch((err) => console.log(err.message));
+
+
+const port = 3080;
+
+const configuration = new Configuration({
+  organization: process.env.OPENAI_ORG_ID,
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+// const responce = await openai.listModels()
+// const response = await openai.retrieveModel("text-davinci-003");
+
+app.post("/", async(req,res) => {
+  const response = await openai.createCompletion(
+    {
+      model: "text-davinci-003",
+      prompt: "Say this is a test",
+      max_tokens:7,
+      temperature:0,
+    }
+  )
+  console.log(response.data.choices[0].text)
+  res.json({
+    data:response.data
+  })
+})
+app.listen(port, () => {
+  console.log(`OpenAI is listening to port ${port}`)
+})
