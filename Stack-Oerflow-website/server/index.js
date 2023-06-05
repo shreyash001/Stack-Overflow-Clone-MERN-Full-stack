@@ -22,11 +22,12 @@ app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
 app.use("/answer", answerRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 const DATABASE_URL = process.env.CONNECTION_URL
   // "mongodb+srv://admin:admin@stack-overflow-clone.mtxispg.mongodb.net/?retryWrites=true&w=majority";
 
+// mongoose.set('strictQuery',true)
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
@@ -36,8 +37,8 @@ mongoose
   )
   .catch((err) => console.log(err.message));
 
-
-const port = 3080;
+// --------------------------------------------------------------------------//
+const port = process.env.OPENAI_PORT;
 
 const configuration = new Configuration({
   organization: process.env.OPENAI_ORG_ID,
@@ -48,17 +49,18 @@ const openai = new OpenAIApi(configuration);
 // const response = await openai.retrieveModel("text-davinci-003");
 
 app.post("/", async(req,res) => {
+  const message = req.body;
   const response = await openai.createCompletion(
     {
       model: "text-davinci-003",
-      prompt: "Say this is a test",
-      max_tokens:7,
-      temperature:0,
+      prompt: `${message}`,
+      max_tokens:100,
+      temperature:0.5,
     }
   )
-  console.log(response.data.choices[0].text)
   res.json({
-    data:response.data
+    // data:response.data
+    data:response.data.choices[0].text
   })
 })
 app.listen(port, () => {

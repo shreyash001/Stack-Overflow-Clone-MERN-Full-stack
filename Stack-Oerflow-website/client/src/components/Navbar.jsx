@@ -41,7 +41,9 @@ const Navbar = () => {
             </Link>
             <Link to='/' className='nav-item nav-btn'>About</Link>
             <Link to='/' className='nav-item nav-btn'>Product</Link>
-            <Link to='/ChatBot' className='nav-item nav-btn '>AI Solution</Link>
+
+            {/* <Link to='/ChatBot' className='nav-item nav-btn '>AI Solution</Link> */}
+            {/* Chat bot AI part is Under development is under way */}
             <form>
                 <input type="text" placeholder='Search...' />
                 <img src={search} alt="search-icon" className='search-icon' width='15px'/>
@@ -56,7 +58,7 @@ const Navbar = () => {
                   px='10px' py='15px'
                   textAlign='center' 
                   cursor='pointer' 
-                  ><Link to={`/Users/${User?.result._id}`} style={{color:'white' ,textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link>
+                  ><Link to={`/Users/${User?.result._id}`} style={{color:'white' ,textDecoration:'none'}}>{User.result.name.split("")[0].toUpperCase()}</Link>
                 </Avatar>
                 <button className='nav-item nav-links' onClick={handleLogout}>Logout</button>
               </>

@@ -17,67 +17,6 @@ const QuestionDetails = () => {
 
   const { id } = useParams()
   const questionsList = useSelector(state => state.questionsReducer)
-
-  
-  
-  // const questionsList = [
-  //   {
-  //     _id: '1',
-  //     upVotes:3,
-  //     downVotes:2,
-  //     noOfAnswers:2,
-  //     questionTitle: "What is javascript",
-  //     questionBody: "It is meant to be",
-  //     questionTags: ["javascript", "java", "css"],
-  //     userPosted: "mona",
-  //     userId:1,
-  //     askedOn: "jan 01",
-  //     answers: [{
-  //       answers: "Answer",
-  //       userAnswered:'Kumar',
-  //       answeredOn: "jan 02",
-  //       userId:2,
-  //     }]
-  //   },
-  //   {
-  //     _id: '2',
-  //     questionTags: ["html", "java", "css"],
-  //     userPosted: "Rahul",
-
-  //     upVotes:3,
-  //     downVotes:2,
-  //     noOfAnswers:2,
-  //     questionTitle: "What is java",
-  //     questionBody: "It is meant to be",
-  //     userId:1,
-  //     askedOn: "jan 01",
-  //     answers: [{
-  //       answers: "Answer",
-  //       userAnswered:'Kumar',
-  //       answeredOn: "jan 02",
-  //       userId:5,
-  //     }]
-  //   },
-  //   {
-  //     _id: '3',
-  //     questionTags: ["DevOps", "html", "css"],
-  //     userPosted: "Ajay",
-
-  //     upVotes:3,
-  //     downVotes:2,
-  //     noOfAnswers:2,
-  //     questionTitle: "What is DevOps",
-  //     questionBody: "It is meant to be",
-  //     userId:1,
-  //     askedOn: "jan 01",
-  //     answers: [{
-  //       answers: "Answer",
-  //       userAnswered:'Kumar',
-  //       answeredOn: "jan 02",
-  //       userId:4,
-  //     }]
-  //   },
-  // ];
   
   const[Answer,setAnswer] = useState('')
   const Navigate = useNavigate();

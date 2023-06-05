@@ -18,19 +18,26 @@ const AskQuestion = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     // console.log({ questionTitle, questionBody, questionTags})
-    dispatch(askQuestion({
-      questionTitle,
-      questionBody,
-      questionTags,
-      userPosted: User.result.name,
-      userId: User?.result?._id
-    }, navigate))
-    
+    if(User === null){
+      alert('Please login to post a question')
+      setTimeout(() => {
+        navigate('/Auth')
+      }, 100);
+    }else{
+      dispatch(askQuestion({
+        questionTitle,
+        questionBody,
+        questionTags,
+        userPosted: User.result.name,
+        userId: User?.result?._id
+      }, navigate))
+    }
+    // console.log(User)
   }
   
   const handleEnter = (e) => {
     if(e.key === 'Enter'){
-      setQuestionBody(questionBody + "\n")
+      setQuestionBody(questionBody +"\n")
     }
   }
 

@@ -58,7 +58,13 @@
     min-height: 50px;
     margin-bottom: 10px;
 }
-textarea{
+.ask-question-form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+input{
     width: 80%;
     padding: 10px;
     border-radius: 5px;
