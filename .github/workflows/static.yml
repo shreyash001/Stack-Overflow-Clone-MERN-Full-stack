@@ -1,0 +1,61 @@
+# Workflow for deploying static content to GitHub Pages
+name: React Js Deploy static content to Pages
+
+on:
+  # Trigger deployment on pushes to the main branch
+  push:
+    branches: ["main"]
+
+  # Allow manual runs via the Actions tab
+  workflow_dispatch:
+
+# Permissions for GITHUB_TOKEN to allow deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ensure only one deployment runs at a time, without canceling in-progress runs
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js for the frontend build
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Step 3: Navigate to the frontend directory and install dependencies
+      - name: Install dependencies
+        working-directory: Stack-Oerflow-website/client
+        run: npm ci
+
+      # Step 4: Build the React application
+      - name: Build project
+        working-directory: Stack-Oerflow-website/client
+        run: npm run build
+
+      # Step 5: Upload the build output for deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Specify the build directory from the frontend
+          path: Stack-Oerflow-website/client/build
+
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
